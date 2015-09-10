@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - myDemoDB@localhost" uuid="aecdb06c-d44a-4233-a0a1-4bf569780e45">
+    <database-info product="MySQL" version="5.6.19-0ubuntu0.14.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="myDemoDB"/>
+    <table name="booking" schema="" catalog="myDemoDB" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="date" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="emp_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="service_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="cust_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_16yn5daevxgmke5j4ufvq0vai" columns="cust_id" ref-table="customer" ref-schema="" ref-catalog="myDemoDB" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_eb3spd3kwb8gsma6rj8ol4e3s" columns="service_id" ref-table="car_servicing" ref-schema="" ref-catalog="myDemoDB" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_kea9ullhl7tvshdxik3yrueji" columns="emp_id" ref-table="renting" ref-schema="" ref-catalog="myDemoDB" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_16yn5daevxgmke5j4ufvq0vai" unique="false" columns="cust_id"/>
+      <index name="FK_eb3spd3kwb8gsma6rj8ol4e3s" unique="false" columns="service_id"/>
+      <index name="FK_kea9ullhl7tvshdxik3yrueji" unique="false" columns="emp_id"/>
+    </table>
+    <table name="car" schema="" catalog="myDemoDB" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="km" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="category" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="service_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_4v1im583rba3ohyhrellf730g" columns="service_id" ref-table="car_servicing" ref-schema="" ref-catalog="myDemoDB" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_4v1im583rba3ohyhrellf730g" unique="false" columns="service_id"/>
+    </table>
+    <table name="car_servicing" schema="" catalog="myDemoDB" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="amount" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="parts" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_eb3spd3kwb8gsma6rj8ol4e3s" table="booking" schema="" catalog="myDemoDB" columns="service_id"/>
+      <exported-key name="FK_4v1im583rba3ohyhrellf730g" table="car" schema="" catalog="myDemoDB" columns="service_id"/>
+    </table>
+    <table name="company" schema="" catalog="myDemoDB" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="address" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="company_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_k20labyfxi4i3ftuv4yv5age9" table="employee" schema="" catalog="myDemoDB" columns="company_id"/>
+    </table>
+    <table name="customer" schema="" catalog="myDemoDB" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="address" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="first_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="phone_number" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_16yn5daevxgmke5j4ufvq0vai" table="booking" schema="" catalog="myDemoDB" columns="cust_id"/>
+      <exported-key name="FK_23jl8viup6f2p1slqbv00vtsa" table="driver" schema="" catalog="myDemoDB" columns="cust_id"/>
+      <exported-key name="FK_aitfkyp1npwndp8emrj2vv2np" table="invoice" schema="" catalog="myDemoDB" columns="cust_id"/>
+    </table>
+    <table name="driver" schema="" catalog="myDemoDB" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="age" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="lisence_code" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="cust_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_23jl8viup6f2p1slqbv00vtsa" columns="cust_id" ref-table="customer" ref-schema="" ref-catalog="myDemoDB" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_23jl8viup6f2p1slqbv00vtsa" unique="false" columns="cust_id"/>
+    </table>
+    <table name="employee" schema="" catalog="myDemoDB" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="job_desc" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="address" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="first_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="company_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_k20labyfxi4i3ftuv4yv5age9" columns="company_id" ref-table="company" ref-schema="" ref-catalog="myDemoDB" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_k20labyfxi4i3ftuv4yv5age9" unique="false" columns="company_id"/>
+    </table>
+    <table name="invoice" schema="" catalog="myDemoDB" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="amount_owed" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="amount_paid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="cust_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_aitfkyp1npwndp8emrj2vv2np" columns="cust_id" ref-table="customer" ref-schema="" ref-catalog="myDemoDB" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_aitfkyp1npwndp8emrj2vv2np" unique="false" columns="cust_id"/>
+    </table>
+    <table name="renting" schema="" catalog="myDemoDB" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="lecense_plate" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="period" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_kea9ullhl7tvshdxik3yrueji" table="booking" schema="" catalog="myDemoDB" columns="emp_id"/>
+    </table>
+  </data-source>
+</component>
