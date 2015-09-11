@@ -8,7 +8,9 @@ import java.util.List;
 /**
  * Created by student on 2015/08/25.
  */
-public interface CustomerService {
+public interface CustomerService extends Services<Customer,Long> {
     List<Customer> getCustomers();
     List<Booking> getBookings(Long id);
+    List<Customer>  updateSubject(Long id);
+
 }

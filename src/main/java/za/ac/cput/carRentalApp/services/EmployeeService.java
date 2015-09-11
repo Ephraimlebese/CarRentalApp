@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by student on 2015/08/25.
  */
-public interface EmployeeService {
+public interface EmployeeService extends Services<Employee,Long> {
     List<Employee> getEmployee();
     List<Booking> getBookings(Long id);
 }

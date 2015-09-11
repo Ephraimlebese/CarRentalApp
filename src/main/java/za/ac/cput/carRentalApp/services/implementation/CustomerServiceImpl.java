@@ -39,5 +39,34 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepo.findOne(id).getBooking();
     }
 
+    @Override
+    public List<Customer> updateSubject(Long id) {
+        return null;
+    }
 
+
+    @Override
+    public Customer findById(Long aLong) {
+        return null;
+    }
+
+    @Override
+    public Customer save(Customer entity) {
+        return null;
+    }
+
+    @Override
+    public Customer update(Customer entity) {
+        return null;
+    }
+
+    @Override
+    public void delete(Customer entity) {
+
+    }
+
+    @Override
+    public List<Customer> findAll() {
+        return null;
+    }
 }

@@ -39,4 +39,29 @@ public class EmployeeServiceImpl implements EmployeeService {
     public List<Booking> getBookings(Long id){
         return employeeRepo.findOne(id).getBooking();
     }
+
+    @Override
+    public Employee findById(Long aLong) {
+        return null;
+    }
+
+    @Override
+    public Employee save(Employee entity) {
+        return null;
+    }
+
+    @Override
+    public Employee update(Employee entity) {
+        return null;
+    }
+
+    @Override
+    public void delete(Employee entity) {
+
+    }
+
+    @Override
+    public List<Employee> findAll() {
+        return null;
+    }
 }
