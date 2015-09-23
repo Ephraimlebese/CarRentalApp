@@ -1,14 +1,8 @@
 package za.ac.cput.carRentalApp.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
-import org.springframework.test.context.web.WebAppConfiguration;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-import za.ac.cput.carRentalApp.App;
 import za.ac.cput.carRentalApp.config.*;
 import za.ac.cput.carRentalApp.domain.*;
 import za.ac.cput.carRentalApp.repository.CustomerRepo;
@@ -19,8 +13,8 @@ import java.util.List;
 /**
  * Created by student on 2015/08/25.
  */
-@SpringApplicationConfiguration(classes = App.class)
-@WebAppConfiguration
+//@SpringApplicationConfiguration(classes = App.class)
+//@WebAppConfiguration
 public class CustomerServiceTest  extends AbstractTestNGSpringContextTests {
 
     @Autowired
@@ -33,7 +27,7 @@ public class CustomerServiceTest  extends AbstractTestNGSpringContextTests {
     private List<Invoice> invoices;
     private List<Car> cars;
 
-    @BeforeMethod
+    //@BeforeMethod
     public void setUp() throws Exception {
         bookings = new ArrayList<>();
         drivers = new ArrayList<>();
@@ -41,7 +35,7 @@ public class CustomerServiceTest  extends AbstractTestNGSpringContextTests {
         cars = new ArrayList<>();
     }
 
-    @Test
+    //@Test
     public void testCreate() throws Exception {
         Car car1 = CarFactory.createCar("Sedan", 1000);
         cars.add(car1);
@@ -60,14 +54,14 @@ public class CustomerServiceTest  extends AbstractTestNGSpringContextTests {
         Assert.assertNotNull(id);
     }
 
-    @Test
+    //@Test
     public void testGetBookings() throws Exception {
         List<Booking> booking = customerService.getBookings(id);
         Assert.assertTrue(booking.size() > 0);
 
     }
 
-    @AfterMethod
+    //@AfterMethod
     public void tearDown() throws Exception {
 
 

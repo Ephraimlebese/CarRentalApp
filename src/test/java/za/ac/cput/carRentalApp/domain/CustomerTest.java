@@ -1,8 +1,6 @@
 package za.ac.cput.carRentalApp.domain;
 
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 import za.ac.cput.carRentalApp.config.CustomerFactory;
 
 import java.util.ArrayList;
@@ -12,13 +10,13 @@ import java.util.List;
  * Created by student on 2015/04/26.
  */
 public class CustomerTest {
-    @Before
+   // @Before
     public void setUp() throws Exception {
 
 
     }
 
-    @Test
+   // @Test
     public void createCustomerTest() throws Exception {
         List<Booking> bookings = new ArrayList<Booking>();
         List<Driver> drivers = new ArrayList<Driver>();
@@ -30,7 +28,7 @@ public class CustomerTest {
 
     }
 
-    @Test
+    //@Test
     public void updateCustomerTest() throws Exception {
 
         List<Booking> bookings = new ArrayList<Booking>();

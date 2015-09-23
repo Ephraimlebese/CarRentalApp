@@ -1,21 +1,19 @@
 package za.ac.cput.carRentalApp.domain;
 
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 import za.ac.cput.carRentalApp.config.CarFactory;
 
 /**
  * Created by student on 2015/04/26.
  */
 public class CarTest {
-    @Before
+   // @Before
     public void setUp() throws Exception {
 
 
     }
 
-    @Test
+  //  @Test
     public void createCarTest() throws Exception {
         Car car = CarFactory.createCar("Sedan",12000);
 
@@ -23,7 +21,7 @@ public class CarTest {
 
     }
 
-    @Test
+   // @Test
     public void updateCarTest() throws Exception {
 
         Car car = CarFactory.createCar("Sedan",12000);

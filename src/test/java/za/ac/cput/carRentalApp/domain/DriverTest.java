@@ -1,28 +1,26 @@
 package za.ac.cput.carRentalApp.domain;
 
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 import za.ac.cput.carRentalApp.config.DriverFactory;
 
 /**
  * Created by student on 2015/04/26.
  */
 public class DriverTest {
-    @Before
+    //@Before
     public void setUp() throws Exception {
 
 
     }
 
-    @Test
+    //@Test
     public void createDriverTest() throws Exception {
         Driver driver = DriverFactory.createDriver("Code8",18);
 
         Assert.assertEquals("Code8", driver.getLisenceCode());
     }
 
-    @Test
+    //@Test
     public void upDateDriverTest() throws Exception {
         Driver driver = DriverFactory.createDriver("Code8",18);
 
