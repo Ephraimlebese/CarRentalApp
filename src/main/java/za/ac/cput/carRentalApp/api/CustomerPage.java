@@ -92,40 +92,40 @@ public class CustomerPage {
     }
 
     //------------------- Update a Subject --------------------------------------------------------
-
-    @RequestMapping(value = "/customer/update/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Customer> updateSubject(@PathVariable("id") long id, @RequestBody Customer customer) {
-        System.out.println("Updating Customer " + id);
-
-        Customer currentCustomer = customerService.findById(id);
-
-        if (currentCustomer==null) {
-            System.out.println("Customer with id " + id + " not found");
-            return new ResponseEntity<Customer>(HttpStatus.NOT_FOUND);
-        }
-
-        Customer updatedCustomer = new Customer
-                .Builder(currentCustomer.getLastName())
-                .copy(currentCustomer)
-                .build();
-        currentCustomer.update(updatedCustomer);
-        return new ResponseEntity<Customer>(updatedCustomer, HttpStatus.OK);
-    }
-
-    //------------------- Delete a Subject --------------------------------------------------------
-
-    @RequestMapping(value = "/subject/delete/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Customer> deleteSubject(@PathVariable("id") long id) {
-        System.out.println("Fetching & Deleting Customer with id " + id);
-
-        Customer customer = customerService.findById(id);
-        if (customer == null) {
-            System.out.println("Unable to delete. Customer with id " + id + " not found");
-            return new ResponseEntity<Customer>(HttpStatus.NOT_FOUND);
-        }
-
-        customer.delete(customer);
-        return new ResponseEntity<Customer>(HttpStatus.NO_CONTENT);
-    }
+//
+//    @RequestMapping(value = "/customer/update/{id}", method = RequestMethod.PUT)
+//    public ResponseEntity<Customer> updateSubject(@PathVariable("id") long id, @RequestBody Customer customer) {
+//        System.out.println("Updating Customer " + id);
+//
+//        Customer currentCustomer = customerService.findById(id);
+//
+//        if (currentCustomer==null) {
+//            System.out.println("Customer with id " + id + " not found");
+//            return new ResponseEntity<Customer>(HttpStatus.NOT_FOUND);
+//        }
+//
+//        Customer updatedCustomer = new Customer
+//                .Builder(currentCustomer.getLastName())
+//                .copy(currentCustomer)
+//                .build();
+//        currentCustomer.update(updatedCustomer);
+//        return new ResponseEntity<Customer>(updatedCustomer, HttpStatus.OK);
+//    }
+//
+//    //------------------- Delete a Subject --------------------------------------------------------
+//
+//    @RequestMapping(value = "/subject/delete/{id}", method = RequestMethod.DELETE)
+//    public ResponseEntity<Customer> deleteSubject(@PathVariable("id") long id) {
+//        System.out.println("Fetching & Deleting Customer with id " + id);
+//
+//        Customer customer = customerService.findById(id);
+//        if (customer == null) {
+//            System.out.println("Unable to delete. Customer with id " + id + " not found");
+//            return new ResponseEntity<Customer>(HttpStatus.NOT_FOUND);
+//        }
+//
+//        customer.delete(customer);
+//        return new ResponseEntity<Customer>(HttpStatus.NO_CONTENT);
+//    }
 
 }
